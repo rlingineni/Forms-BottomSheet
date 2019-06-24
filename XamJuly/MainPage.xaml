@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             mc:Ignorable="d" x:Class="XamJuly.MainPage"
+             Title="Recipe Book">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Name="AddMenuItem" Order="Primary" Text="＋ New" />
+    </ContentPage.ToolbarItems>
+    
+    <StackLayout Padding="10,20,0,0">
+        <!-- Place new controls here -->
+                <ListView x:Name="WeddingsView" HasUnevenRows="true" ItemSelected="Handle_ItemSelected" >
+                  <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell Height="100">
+                            <StackLayout 
+                            Orientation="Horizontal">
+                             <Image Source="{Binding ImageURL}" HeightRequest="75" WidthRequest="75" />
+                                <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand">
+                                    <Label Text="{Binding Name}"
+                                    TextColor="#f35e20" />
+                                    <Label Text="{Binding Type}"
+                                    TextColor="#503026" />
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+    </StackLayout>
+</ContentPage>

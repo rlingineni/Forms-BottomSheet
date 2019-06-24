@@ -1,0 +1,49 @@
+﻿navigationpage {
+    -xf-bar-background-color: lightgray;
+}
+
+^contentpage {
+    background-color: lightgray;
+}
+
+#listView {
+    background-color: lightgray;
+}
+
+stacklayout {
+    margin: 20;
+}
+
+.mainPageTitle {
+    font-style: bold;
+    font-size: medium;
+    font-family: 'Avenir'
+}
+
+.mainPageSubtitle {
+    margin-top: 15;
+    font-family: 'Avenir'
+}
+
+.detailPageTitle {
+    font-style: bold;
+    font-size: medium;
+    text-align: center;
+    font-family: 'Avenir'
+}
+
+.detailPageSubtitle {
+    text-align: center;
+    font-style: italic;
+    font-family: 'Avenir'
+}
+
+listview image {
+    height: 60;
+    width: 60;
+}
+
+stacklayout > image {
+    height: 200;
+    width: 200;
+}

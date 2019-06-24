@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="XamJuly.Pages.RecipeDetailsPage">
+    <ContentPage.Content>
+        <RelativeLayout>
+          <StackLayout Padding="0,20,0,0" HorizontalOptions="FillAndExpand"
+                        RelativeLayout.WidthConstraint="{ConstraintExpression
+                        Type=RelativeToParent,Property=Width,Factor=1,Constant=0}"
+                        RelativeLayout.HeightConstraint="{ConstraintExpression
+                        Type=RelativeToParent,Property=Height,Factor=1,Constant=0}">
+               <Label HorizontalOptions="CenterAndExpand" Text="Chicken Couscous" FontSize="30"/>
+                <BoxView BackgroundColor="Teal" HeightRequest="250"  />
+                <Label Text="Cooking Instructions" HorizontalOptions="CenterAndExpand"/> 
+                <ListView>
+                    
+                </ListView>
+                
+            </StackLayout>
+             
+              <Frame HasShadow="true" CornerRadius="8" Padding="1,4,1,0" BackgroundColor="#faf9f8"
+                     x:Name="redBox" 
+        RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
+            Property=Height,Factor=.9,Constant=0}"
+        RelativeLayout.WidthConstraint="{ConstraintExpression
+            Type=RelativeToParent,Property=Width,Factor=1,Constant=0}"
+        RelativeLayout.HeightConstraint="{ConstraintExpression
+            Type=RelativeToParent,Property=Height,Factor=1,Constant=0}">
+            <Frame.GestureRecognizers>
+                    <PanGestureRecognizer PanUpdated="OnPanUpdated" />
+                </Frame.GestureRecognizers>
+              <StackLayout Spacing="5">
+               <BoxView HeightRequest="5" CornerRadius="2" WidthRequest="50" BackgroundColor="Gray" HorizontalOptions="Center"/>
+                <SearchBar x:Name="SearchBox" BackgroundColor="Transparent" Focused="Handle_Focused"/>
+               <StackLayout BackgroundColor="#edebe9" HeightRequest="150" Orientation="Horizontal" Padding="10,10,10,10">
+                        <BoxView BackgroundColor="#f35e20" CornerRadius="37.5" HeightRequest="75" WidthRequest="75" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand"/>
+                          <BoxView BackgroundColor="#f35e20" CornerRadius="37.5" HeightRequest="75" WidthRequest="75" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                          <BoxView BackgroundColor="#f35e20" CornerRadius="37.5" HeightRequest="75" WidthRequest="75" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand"/>
+                    </StackLayout> 
+              <ListView BackgroundColor="Transparent" HorizontalOptions="FillAndExpand" HeightRequest="100">
+                </ListView>
+         
+            </StackLayout>
+                     </Frame>
+
+      
+          </RelativeLayout>
+    </ContentPage.Content>
+</ContentPage>
