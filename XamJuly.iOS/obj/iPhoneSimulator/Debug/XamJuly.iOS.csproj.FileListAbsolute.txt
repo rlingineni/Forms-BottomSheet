@@ -58,3 +58,4 @@
 /Users/ravitejalingineni/Documents/Projects/XamJuly/XamJuly.iOS/obj/iPhoneSimulator/Debug/XamJuly.iOS.exe
 /Users/ravitejalingineni/Documents/Projects/XamJuly/XamJuly.iOS/obj/iPhoneSimulator/Debug/XamJuly.iOS.pdb
 /Users/ravitejalingineni/Documents/Projects/XamJuly/XamJuly.iOS/bin/iPhoneSimulator/Debug/Assets/styles.css
+/Users/ravitejalingineni/Documents/Projects/XamJuly/XamJuly.iOS/bin/iPhoneSimulator/Debug/obj/Debug/netstandard2.0/Assets/styles.css.g.cs

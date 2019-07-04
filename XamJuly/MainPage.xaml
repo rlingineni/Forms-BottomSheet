@@ -6,12 +6,14 @@
              mc:Ignorable="d" x:Class="XamJuly.MainPage"
              Title="Recipe Book">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Name="AddMenuItem" Order="Primary" Text="＋ New" />
+        <ToolbarItem Name="AddMenuItem" Order="Primary" Text="Reset" Clicked="ToolItem_Clicked" CommandParameter=""/>
     </ContentPage.ToolbarItems>
     
+    <RelativeLayout>
+        
     <StackLayout Padding="10,20,0,0">
         <!-- Place new controls here -->
-                <ListView x:Name="WeddingsView" HasUnevenRows="true" ItemSelected="Handle_ItemSelected" >
+                <ListView x:Name="RecipesListView" HasUnevenRows="true" >
                   <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell Height="100">
@@ -29,5 +31,48 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-    </StackLayout>
+    </StackLayout>      
+          <Frame HasShadow="true" CornerRadius="8" Padding="1,4,1,0" BackgroundColor="#faf9f8"
+                     x:Name="bottomSheet" 
+                    RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
+                        Property=Height,Factor=.9,Constant=0}"
+                    RelativeLayout.WidthConstraint="{ConstraintExpression
+                        Type=RelativeToParent,Property=Width,Factor=1,Constant=0}"
+                    RelativeLayout.HeightConstraint="{ConstraintExpression
+                        Type=RelativeToParent,Property=Height,Factor=1,Constant=0}">
+            <Frame.GestureRecognizers>
+                    <PanGestureRecognizer PanUpdated="OnPanUpdated" />
+                </Frame.GestureRecognizers>
+              <StackLayout Spacing="5">
+               <BoxView HeightRequest="5" CornerRadius="2" WidthRequest="50" BackgroundColor="Gray" HorizontalOptions="Center"/>
+                <SearchBar x:Name="SearchBox" Placeholder="Search by Ingredient" BackgroundColor="Transparent" Focused="SearchBar_Focused" TextChanged="SearchBar_TextChanged"/>
+               <StackLayout x:Name="GridFilter" BackgroundColor="#edebe9" HeightRequest="150" Orientation="Horizontal" Padding="10,10,10,10">
+                        <StackLayout HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" Padding="0">
+                           <ImageButton Source="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDwVnFrRlJtz2VE6CKCQLBnNVll3lry-M0u862OqszfEsc-Q38aA" Aspect="AspectFill" CornerRadius="40" HeightRequest="80" WidthRequest="80"  BorderWidth="2" BorderColor="Teal"/>
+                            <Label Text="Fruit" HorizontalTextAlignment="Center"/> 
+                        </StackLayout>
+                         <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Padding="0">
+                           <ImageButton Source="https://banner2.kisspng.com/20180311/wge/kisspng-vegetable-auglis-cartoon-cartoon-vector-fruits-and-vegetables-5aa513288e7157.2613950615207677845835.jpg" Aspect="AspectFill" CornerRadius="40" HeightRequest="80" WidthRequest="80" BorderWidth="2" BorderColor="Teal"/>
+                            <Label Text="Vegetable" HorizontalTextAlignment="Center"/> 
+                        </StackLayout>
+                            <StackLayout HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand" Padding="0">
+                           <ImageButton Source="https://banner2.kisspng.com/20180304/uwq/kisspng-ham-barbecue-meat-cartoon-meat-ham-5a9c53d0529a72.3060190115201945123384.jpg" Aspect="AspectFill" CornerRadius="40" HeightRequest="80" WidthRequest="80" BorderWidth="2"  BorderColor="Teal" />
+                            <Label Text="Meat" HorizontalTextAlignment="Center"/> 
+                        </StackLayout>
+                    </StackLayout> 
+              <ListView x:Name="IngredientsListView" BackgroundColor="Transparent" HorizontalOptions="FillAndExpand" HeightRequest="100" ItemSelected="Handle_IngredientSelected" >
+                     <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell Height="100">
+                            <StackLayout Padding="10,5,10,5" Orientation="Horizontal">
+                             <Label Text="{Binding Name}" FontSize="Large" FontFamily="Avenir-Light"
+                                    TextColor="#503026" />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+          </Frame>
+ </RelativeLayout>
 </ContentPage>

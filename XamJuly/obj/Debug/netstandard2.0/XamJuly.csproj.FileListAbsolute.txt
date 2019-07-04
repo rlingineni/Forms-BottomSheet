@@ -15,4 +15,3 @@
 /Users/ravitejalingineni/Documents/Projects/XamJuly/XamJuly/obj/Debug/netstandard2.0/XamJuly.pdb
 /Users/ravitejalingineni/Documents/Projects/XamJuly/XamJuly/bin/Debug/netstandard2.0/Assets/styles.css
 /Users/ravitejalingineni/Documents/Projects/XamJuly/XamJuly/bin/Debug/netstandard2.0/obj/Debug/netstandard2.0/Assets/styles.css.g.cs
-/Users/ravitejalingineni/Documents/Projects/XamJuly/XamJuly/obj/Debug/netstandard2.0/Pages/RecipeDetailsPage.xaml.g.cs

@@ -1,30 +1,23 @@
 ﻿<Properties StartupConfiguration="{24F62A33-ACBE-43CB-97B6-69B297B128B5}|Default">
   <MonoDevelop.Ide.ItemProperties.XamJuly.Android PreferredExecutionTarget="Android.Android_Accelerated_Oreo" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="XamJuly/Pages/RecipeDetailsPage.xaml.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="XamJuly/MainPage.xaml.cs">
     <Files>
-      <File FileName="XamJuly/MainPage.xaml.cs" Line="40" Column="1" />
-      <File FileName="XamJuly/MainPage.xaml" Line="23" Column="48" />
-      <File FileName="XamJuly/Pages/RecipeDetailsPage.xaml" Line="15" Column="28" />
-      <File FileName="XamJuly/Pages/RecipeDetailsPage.xaml.cs" Line="93" Column="16" />
+      <File FileName="XamJuly/MainPage.xaml" Line="76" Column="19" />
+      <File FileName="XamJuly/Static/IngredientsData.cs" Line="43" Column="15" />
+      <File FileName="XamJuly/Static/RecipeData.cs" Line="44" Column="32" />
+      <File FileName="XamJuly/MainPage.xaml.cs" Line="38" Column="13" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="XamJuly" expanded="True">
             <Node name="XamJuly" expanded="True">
-              <Node name="Assets" expanded="True" />
-              <Node name="Models" expanded="True" />
-              <Node name="Pages" expanded="True">
-                <Node name="RecipeDetailsPage.xaml" expanded="True">
-                  <Node name="RecipeDetailsPage.xaml.cs" selected="True" />
-                </Node>
+              <Node name="Static" expanded="True" />
+              <Node name="MainPage.xaml" expanded="True">
+                <Node name="MainPage.xaml.cs" selected="True" />
               </Node>
-              <Node name="App.xaml" expanded="True" />
-              <Node name="MainPage.xaml" expanded="True" />
             </Node>
-            <Node name="XamJuly.iOS" expanded="True">
-              <Node name="Resources" expanded="True" />
-            </Node>
+            <Node name="XamJuly.iOS" expanded="True" />
           </Node>
         </State>
       </Pad>
