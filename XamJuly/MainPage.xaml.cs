@@ -53,15 +53,7 @@ namespace XamJuly
 
             RecipesListView.ItemsSource = filteredRecipes;
             ((ListView)sender).SelectedItem = null;
-            DismissBottomSheet();
-        }
-
-        void SearchBar_Focused(object sender, FocusEventArgs e)
-        {
-            var finalTranslation = Math.Max(Math.Min(0, -1000), -Math.Abs(getProportionCoordinate(.85)));
-            GridFilter.IsVisible = true;
-            bottomSheet.TranslateTo(bottomSheet.X, finalTranslation, 150, Easing.SpringIn);
-
+            dismissBottomSheet();
         }
 
 
@@ -91,8 +83,16 @@ namespace XamJuly
         }
 
 
-
+        // Important Code Lives Below
         double x, y;
+
+
+        void SearchBar_Focused(object sender, FocusEventArgs e)
+        {
+            GridFilter.IsVisible = true;
+            openBottomSheet();
+        }
+
 
         void OnPanUpdated(object sender, PanUpdatedEventArgs e)
         {
@@ -100,31 +100,18 @@ namespace XamJuly
             switch (e.StatusType)
             {
                 case GestureStatus.Running:
-                    // Translate and ensure we don't y + e.TotalYpan beyond the wrapped user interface element bounds.
-
-
-
+                    // Translate and ensure we don't y + e.TotalY pan beyond the wrapped user interface element bounds.
                     var translateY = Math.Max(Math.Min(0, y + e.TotalY), -Math.Abs((Height * .25) - Height));
-                    //if it's a down gesture, 
-
-
-
-
-                    //translateY= Math.Max(Math.Min(0, getClosestLockState(translateY) - bottomSheet.Y), -Math.Abs((bottomSheet.Height + Height * .2) - Height));
                     bottomSheet.TranslateTo(bottomSheet.X, translateY, 20);
-                    //bottomSheet.TranslateTo(bottomSheet.X, translateY, 10, Easing.Linear);
-
-                    //depending on the current position - update it to the closest lock state
-
-
-
                     break;
                 case GestureStatus.Completed:
                     // Store the translation applied during the pan
                     y = bottomSheet.TranslationY;
+
+                    //at the end of the event - snap to the closest location
                     var finalTranslation = Math.Max(Math.Min(0, -1000), -Math.Abs(getClosestLockState(e.TotalY + y)));
 
-                    //depending 
+                    //depending on Swipe Up or Down - change the snapping animation
                     if (isSwipeUp(e))
                     {
                         bottomSheet.TranslateTo(bottomSheet.X, finalTranslation, 250, Easing.SpringIn);
@@ -134,8 +121,8 @@ namespace XamJuly
                         bottomSheet.TranslateTo(bottomSheet.X, finalTranslation, 250, Easing.SpringOut);
                     }
 
+                    //dismiss the keyboard after a transition
                     SearchBox.Unfocus();
-
                     y = bottomSheet.TranslationY;
 
                     break;
@@ -156,6 +143,7 @@ namespace XamJuly
         //TO-DO: Make this cleaner
         public double getClosestLockState(double TranslationY)
         {
+            //Play with these values to adjust the locking motions - this will change depending on the amount of content ona  apge
             var lockStates = new double[] { 0, .5, .85 };
 
             //get the current proportion of the sheet in relation to the screen
@@ -187,7 +175,7 @@ namespace XamJuly
             return proportion * Height;
         }
 
-        void DismissBottomSheet()
+        void dismissBottomSheet()
         {
 
             SearchBox.Unfocus();
@@ -196,5 +184,10 @@ namespace XamJuly
             SearchBox.Text = string.Empty;
         }
 
+        void openBottomSheet()
+        {
+            var finalTranslation = Math.Max(Math.Min(0, -1000), -Math.Abs(getProportionCoordinate(.85)));
+            bottomSheet.TranslateTo(bottomSheet.X, finalTranslation, 150, Easing.SpringIn);
+        }
     }
 }
